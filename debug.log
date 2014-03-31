@@ -19,41 +19,57 @@ lua_loadChunksFromZIP() - loaded chunks count: 54
 ------------------------------------------------
 LOAD LUA FILE: F:/develop/project/yijing/scripts/main.lua
 ------------------------------------------------
-[0.1856] [INFO] 
-[0.1859] [INFO] # DEBUG                        = 2
-[0.1863] [INFO] #
-[0.1869] [INFO] # device.platform              = windows
-[0.1872] [INFO] # device.model                 = unknown
-[0.1875] [INFO] # device.language              = cn
-[0.1877] [INFO] # device.writablePath          = F:\develop\project\yijing\
-[0.1880] [INFO] # device.cachePath             = F:\develop\project\yijing\
-[0.1883] [INFO] # device.directorySeparator    = \
-[0.1885] [INFO] # device.pathSeparator         = ;
-[0.1888] [INFO] #
-[0.1899] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_WIDTH
-[0.1917] [INFO] # CONFIG_SCREEN_WIDTH          = 1136.00
-[0.1919] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
-[0.1921] [INFO] # display.widthInPixels        = 1136.00
-[0.1923] [INFO] # display.heightInPixels       = 640.00
-[0.1925] [INFO] # display.contentScaleFactor   = 1.00
-[0.1945] [INFO] # display.width                = 1136.00
-[0.1947] [INFO] # display.height               = 640.00
-[0.1950] [INFO] # display.cx                   = 568.00
-[0.1952] [INFO] # display.cy                   = 320.00
-[0.1977] [INFO] # display.left                 = 0.00
-[0.1979] [INFO] # display.right                = 1136.00
-[0.1981] [INFO] # display.top                  = 640.00
-[0.1983] [INFO] # display.bottom               = 0.00
-[0.2108] [INFO] # display.c_left               = -568.00
-[0.2112] [INFO] # display.c_right              = 568.00
-[0.2118] [INFO] # display.c_top                = 320.00
-[0.2120] [INFO] # display.c_bottom             = -320.00
-[0.2122] [INFO] #
-[0.2444] [INFO] Scene "GameScene:onEnter()"
-[2.7020] [INFO] Scene "GameScene:onExit()"
-[2.7025] [INFO] ----------------------------------------
-[2.7029] [INFO] LUA VM MEMORY USED: 1183.91 KB
+[0.1984] [INFO] 
+[0.1989] [INFO] # DEBUG                        = 2
+[0.1995] [INFO] #
+[0.2000] [INFO] # device.platform              = windows
+[0.2004] [INFO] # device.model                 = unknown
+[0.2007] [INFO] # device.language              = cn
+[0.2011] [INFO] # device.writablePath          = F:\develop\project\yijing\
+[0.2014] [INFO] # device.cachePath             = F:\develop\project\yijing\
+[0.2017] [INFO] # device.directorySeparator    = \
+[0.2057] [INFO] # device.pathSeparator         = ;
+[0.2063] [INFO] #
+[0.2075] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_WIDTH
+[0.2078] [INFO] # CONFIG_SCREEN_WIDTH          = 1136.00
+[0.2085] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
+[0.2088] [INFO] # display.widthInPixels        = 1136.00
+[0.2091] [INFO] # display.heightInPixels       = 640.00
+[0.2107] [INFO] # display.contentScaleFactor   = 1.00
+[0.2110] [INFO] # display.width                = 1136.00
+[0.2112] [INFO] # display.height               = 640.00
+[0.2121] [INFO] # display.cx                   = 568.00
+[0.2123] [INFO] # display.cy                   = 320.00
+[0.2126] [INFO] # display.left                 = 0.00
+[0.2134] [INFO] # display.right                = 1136.00
+[0.2136] [INFO] # display.top                  = 640.00
+[0.2139] [INFO] # display.bottom               = 0.00
+[0.2149] [INFO] # display.c_left               = -568.00
+[0.2152] [INFO] # display.c_right              = 568.00
+[0.2157] [INFO] # display.c_top                = 320.00
+[0.2160] [INFO] # display.c_bottom             = -320.00
+[0.2163] [INFO] #
+[0.3618] [INFO] Scene "GameScene:onEnter()"
+[10.3659] [INFO] LUA VM MEMORY USED: 1196.84 KB
+[20.3823] [INFO] LUA VM MEMORY USED: 1196.93 KB
+[30.3966] [INFO] LUA VM MEMORY USED: 1197.03 KB
+[41.2319] [INFO] LUA VM MEMORY USED: 1197.13 KB
+[51.2325] [INFO] LUA VM MEMORY USED: 1197.23 KB
+[61.2488] [INFO] LUA VM MEMORY USED: 1197.33 KB
+[302.4384] [INFO] LUA VM MEMORY USED: 1197.43 KB
+[302.5354] [INFO] Scene "GameScene:onExit()"
+[302.5358] [INFO] ----------------------------------------
+[302.5360] [INFO] LUA VM MEMORY USED: 1197.68 KB
 cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
 cocos2d: "cc_2x2_white_image" rc=1 id=3 2 x 2 @ 32 bpp => 0 KB
-cocos2d: CCTextureCache dumpDebugInfo: 2 textures, for 16 KB (0.02 MB)
-[2.7042] [INFO] ----------------------------------------
+cocos2d: "F:\develop\project\yijing\res/player.png" rc=2 id=5 798 x 563 @ 32 bpp => 1754 KB
+cocos2d: "F:\develop\project\yijing\res/desk.png" rc=2 id=6 988 x 188 @ 32 bpp => 725 KB
+cocos2d: "F:\develop\project\yijing\res/window.png" rc=2 id=7 524 x 606 @ 32 bpp => 1240 KB
+cocos2d: "F:\develop\project\yijing\res/windowcolor.png" rc=2 id=8 516 x 593 @ 32 bpp => 1195 KB
+cocos2d: "F:\develop\project\yijing\res/curtain_open.png" rc=2 id=9 566 x 367 @ 32 bpp => 811 KB
+cocos2d: "F:\develop\project\yijing\res/curtain_close.png" rc=2 id=10 598 x 638 @ 32 bpp => 1490 KB
+cocos2d: "F:\develop\project\yijing\res/bookshelf.png" rc=2 id=11 975 x 1000 @ 32 bpp => 3808 KB
+cocos2d: "F:\develop\project\yijing\res/book.png" rc=2 id=12 783 x 833 @ 32 bpp => 2547 KB
+cocos2d: "F:\develop\project\yijing\res/bookcolor.png" rc=2 id=13 147 x 773 @ 32 bpp => 443 KB
+cocos2d: CCTextureCache dumpDebugInfo: 11 textures, for 14034 KB (13.71 MB)
+[302.5382] [INFO] ----------------------------------------
