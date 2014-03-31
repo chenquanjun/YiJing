@@ -1,0 +1,59 @@
+
+<dict>
+	cocos2d.x.version: 2.2.1
+	cocos2d.x.compiled_with_profiler: false
+	cocos2d.x.compiled_with_gl_state_cache: true
+	gl.vendor: ATI Technologies Inc.
+	gl.renderer: AMD Radeon HD 6800 Series
+	gl.version: 4.2.12422 Compatibility Profile Context 13.152.0.0
+	gl.max_texture_size: 16384
+	gl.max_texture_units: 32
+	gl.supports_PVRTC: false
+	gl.supports_NPOT: true
+	gl.supports_BGRA8888: false
+	gl.supports_discard_framebuffer: false
+	gl.supports_vertex_array_object: true
+</dict>
+lua_loadChunksFromZIP() - load zip file: F:\develop\quick-cocos2d-x\lib\framework_precompiled\framework_precompiled.zip
+lua_loadChunksFromZIP() - loaded chunks count: 54
+------------------------------------------------
+LOAD LUA FILE: F:/develop/project/yijing/scripts/main.lua
+------------------------------------------------
+[0.1856] [INFO] 
+[0.1859] [INFO] # DEBUG                        = 2
+[0.1863] [INFO] #
+[0.1869] [INFO] # device.platform              = windows
+[0.1872] [INFO] # device.model                 = unknown
+[0.1875] [INFO] # device.language              = cn
+[0.1877] [INFO] # device.writablePath          = F:\develop\project\yijing\
+[0.1880] [INFO] # device.cachePath             = F:\develop\project\yijing\
+[0.1883] [INFO] # device.directorySeparator    = \
+[0.1885] [INFO] # device.pathSeparator         = ;
+[0.1888] [INFO] #
+[0.1899] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_WIDTH
+[0.1917] [INFO] # CONFIG_SCREEN_WIDTH          = 1136.00
+[0.1919] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
+[0.1921] [INFO] # display.widthInPixels        = 1136.00
+[0.1923] [INFO] # display.heightInPixels       = 640.00
+[0.1925] [INFO] # display.contentScaleFactor   = 1.00
+[0.1945] [INFO] # display.width                = 1136.00
+[0.1947] [INFO] # display.height               = 640.00
+[0.1950] [INFO] # display.cx                   = 568.00
+[0.1952] [INFO] # display.cy                   = 320.00
+[0.1977] [INFO] # display.left                 = 0.00
+[0.1979] [INFO] # display.right                = 1136.00
+[0.1981] [INFO] # display.top                  = 640.00
+[0.1983] [INFO] # display.bottom               = 0.00
+[0.2108] [INFO] # display.c_left               = -568.00
+[0.2112] [INFO] # display.c_right              = 568.00
+[0.2118] [INFO] # display.c_top                = 320.00
+[0.2120] [INFO] # display.c_bottom             = -320.00
+[0.2122] [INFO] #
+[0.2444] [INFO] Scene "GameScene:onEnter()"
+[2.7020] [INFO] Scene "GameScene:onExit()"
+[2.7025] [INFO] ----------------------------------------
+[2.7029] [INFO] LUA VM MEMORY USED: 1183.91 KB
+cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
+cocos2d: "cc_2x2_white_image" rc=1 id=3 2 x 2 @ 32 bpp => 0 KB
+cocos2d: CCTextureCache dumpDebugInfo: 2 textures, for 16 KB (0.02 MB)
+[2.7042] [INFO] ----------------------------------------
