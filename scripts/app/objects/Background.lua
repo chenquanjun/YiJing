@@ -27,6 +27,8 @@ function Background:initBackground()
         local bg = display.newSprite("back_class_normal.png")
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
+        bg:setScaleX(640/512)
+        bg:setScaleY(640/512)
         self:addChild(bg)
         _bgSpriteVec[index] = bg
         index = index + 1
@@ -36,6 +38,8 @@ function Background:initBackground()
         local bg = display.newSprite("back_class_sunset.png")
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
+        bg:setScaleX(640/512)
+        bg:setScaleY(640/512)
         self:addChild(bg)
         _bgSpriteVec[index] = bg
         index = index + 1
@@ -45,6 +49,8 @@ function Background:initBackground()
         local bg = display.newSprite("back_room_night.png")
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
+        bg:setScaleX(640/512)
+        bg:setScaleY(640/512)
         self:addChild(bg)
         _bgSpriteVec[index] = bg
         index = index + 1
@@ -54,6 +60,8 @@ function Background:initBackground()
         local bg = display.newSprite("back_room_normal.png")
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
+        bg:setScaleX(640/512)
+        bg:setScaleY(640/512)
         self:addChild(bg)
         _bgSpriteVec[index] = bg
         index = index + 1
@@ -63,6 +71,8 @@ function Background:initBackground()
         local bg = display.newSprite("back_room_sunset.png")
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
+        bg:setScaleX(640/512)
+        bg:setScaleY(640/512)
         self:addChild(bg)
         _bgSpriteVec[index] = bg
         index = index + 1

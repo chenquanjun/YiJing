@@ -14,6 +14,9 @@ function GameScene:ctor()
 
     self:addChild(bg)
 
+    local player = Player:create()
+
+    self:addChild(player, 10)
 
 
     -- do --player
@@ -25,9 +28,6 @@ function GameScene:ctor()
     -- player:setPosition(ccp(display.cx - 50, display.cy)) 
     -- player:setScale(0.8)
     -- end
-    -- local player = Player:create()
-
-    -- self:addChild(player, 10)
 
     -- do --desk
     -- local desk = self:newButton("desk.png", function()
