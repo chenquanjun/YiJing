@@ -19,38 +19,43 @@ lua_loadChunksFromZIP() - loaded chunks count: 54
 ------------------------------------------------
 LOAD LUA FILE: F:/develop/project/yijing/scripts/main.lua
 ------------------------------------------------
-[0.1870] [INFO] 
-[0.1874] [INFO] # DEBUG                        = 2
-[0.1877] [INFO] #
-[0.1882] [INFO] # device.platform              = windows
-[0.1885] [INFO] # device.model                 = unknown
-[0.1887] [INFO] # device.language              = cn
-[0.1889] [INFO] # device.writablePath          = F:\develop\project\yijing\
-[0.1892] [INFO] # device.cachePath             = F:\develop\project\yijing\
-[0.1894] [INFO] # device.directorySeparator    = \
-[0.1896] [INFO] # device.pathSeparator         = ;
-[0.1898] [INFO] #
-[0.1908] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_WIDTH
-[0.1930] [INFO] # CONFIG_SCREEN_WIDTH          = 1136.00
-[0.1934] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
-[0.1936] [INFO] # display.widthInPixels        = 1136.00
-[0.1938] [INFO] # display.heightInPixels       = 640.00
-[0.1940] [INFO] # display.contentScaleFactor   = 1.00
-[0.1964] [INFO] # display.width                = 1136.00
-[0.1965] [INFO] # display.height               = 640.00
-[0.1967] [INFO] # display.cx                   = 568.00
-[0.1970] [INFO] # display.cy                   = 320.00
-[0.1992] [INFO] # display.left                 = 0.00
-[0.1994] [INFO] # display.right                = 1136.00
-[0.1996] [INFO] # display.top                  = 640.00
-[0.1998] [INFO] # display.bottom               = 0.00
-[0.2009] [INFO] # display.c_left               = -568.00
-[0.2011] [INFO] # display.c_right              = 568.00
-[0.2013] [INFO] # display.c_top                = 320.00
-[0.2015] [INFO] # display.c_bottom             = -320.00
-[0.2025] [INFO] #
-[0.2932] [INFO] Scene "GameScene:onEnter()"
-[10.2960] [INFO] LUA VM MEMORY USED: 1219.95 KB
-[20.2963] [INFO] LUA VM MEMORY USED: 1222.32 KB
-[30.2964] [INFO] LUA VM MEMORY USED: 1222.42 KB
-[40.2966] [INFO] LUA VM MEMORY USED: 1222.52 KB
+[0.1862] [INFO] 
+[0.1865] [INFO] # DEBUG                        = 2
+[0.1869] [INFO] #
+[0.1875] [INFO] # device.platform              = windows
+[0.1878] [INFO] # device.model                 = unknown
+[0.1881] [INFO] # device.language              = cn
+[0.1883] [INFO] # device.writablePath          = F:\develop\project\yijing\
+[0.1885] [INFO] # device.cachePath             = F:\develop\project\yijing\
+[0.1888] [INFO] # device.directorySeparator    = \
+[0.1895] [INFO] # device.pathSeparator         = ;
+[0.1897] [INFO] #
+[0.1907] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_WIDTH
+[0.1909] [INFO] # CONFIG_SCREEN_WIDTH          = 1136.00
+[0.1911] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
+[0.1913] [INFO] # display.widthInPixels        = 1136.00
+[0.1930] [INFO] # display.heightInPixels       = 640.00
+[0.1932] [INFO] # display.contentScaleFactor   = 1.00
+[0.1934] [INFO] # display.width                = 1136.00
+[0.1936] [INFO] # display.height               = 640.00
+[0.1976] [INFO] # display.cx                   = 568.00
+[0.1979] [INFO] # display.cy                   = 320.00
+[0.1982] [INFO] # display.left                 = 0.00
+[0.1984] [INFO] # display.right                = 1136.00
+[0.2000] [INFO] # display.top                  = 640.00
+[0.2002] [INFO] # display.bottom               = 0.00
+[0.2005] [INFO] # display.c_left               = -568.00
+[0.2007] [INFO] # display.c_right              = 568.00
+[0.2017] [INFO] # display.c_top                = 320.00
+[0.2019] [INFO] # display.c_bottom             = -320.00
+[0.2021] [INFO] #
+[0.2763] [INFO] Scene "GameScene:onEnter()"
+[10.2769] [INFO] LUA VM MEMORY USED: 1209.88 KB
+[20.2770] [INFO] LUA VM MEMORY USED: 1209.98 KB
+[30.2772] [INFO] LUA VM MEMORY USED: 1210.08 KB
+[40.2774] [INFO] LUA VM MEMORY USED: 1210.18 KB
+[50.2776] [INFO] LUA VM MEMORY USED: 1210.28 KB
+[60.2778] [INFO] LUA VM MEMORY USED: 1210.38 KB
+[70.2779] [INFO] LUA VM MEMORY USED: 1210.48 KB
+[80.2781] [INFO] LUA VM MEMORY USED: 1210.57 KB
+[90.2783] [INFO] LUA VM MEMORY USED: 1210.67 KB

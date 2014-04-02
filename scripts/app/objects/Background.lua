@@ -67,6 +67,22 @@ function Background:initBackground()
         _bgSpriteVec[index] = bg
         index = index + 1
     end
+
+    do --自定义房间
+        local bg =display.newLayer()
+        bg:setVisible(false)
+        bg:setPosition(ccp(display.cx, display.cy))
+        self:addChild(bg)
+        _bgSpriteVec[index] = bg
+        index = index + 1
+
+        do --window
+            local sprite = display.newSprite("window.png")
+            bg:addChild(sprite)
+            sprite:setPosition(ccp(display.cx - 200, display.cy - 250)) 
+            sprite:setScale(0.8)
+        end
+    end
    
 end
 
@@ -76,15 +92,16 @@ function Background:initBtn()
         local bgVec = _bgSpriteVec
         local size = table.getn(bgVec)
         index = math.random(1, size)
+        index = 6 --test
         bgVec[index]:setVisible(true)
-        
+
         local sprite = display.newSprite("refresh.png")
         self:addChild(sprite)
 
-        sprite:setPosition(ccp(display.right - 100, display.top - 100))
+        sprite:setPosition(ccp(display.left + 50, display.top - 50))
         sprite:setTouchEnabled(true) -- enable sprite touch
         sprite:addTouchEventListener(function(event, x, y)
-
+ 
             if event == "began" then
                 sprite:setScale(0.9)
                 return true -- catch touch event, stop event dispatching
