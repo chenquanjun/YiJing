@@ -1,3 +1,4 @@
+require "app/objects/Player"
 
 local GameScene = class("GameScene", function()
     return display.newScene("GameScene")
@@ -8,15 +9,18 @@ function GameScene:ctor()
         :pos(display.cx, display.top - 50)
         :addTo(self, 10)
 
-    do --player
-    local player = self:newButton("player.png", function()
-            print("onPlayer")
-            label:setString("少年")
-        end)    
-    self:addChild(player)
-    player:setPosition(ccp(display.cx - 50, display.cy)) 
-    player:setScale(0.8)
-    end
+    -- do --player
+    -- local player = self:newButton("player.png", function()
+    --         print("onPlayer")
+    --         label:setString("少年")
+    --     end)    
+    -- self:addChild(player)
+    -- player:setPosition(ccp(display.cx - 50, display.cy)) 
+    -- player:setScale(0.8)
+    -- end
+    local player = Player:create()
+
+    self:addChild(player, 10)
 
     do --desk
     local desk = self:newButton("desk.png", function()
