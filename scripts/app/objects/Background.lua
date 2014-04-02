@@ -21,12 +21,15 @@ function Background:init()
 end
 
 function Background:initBackground()
+
+    local index = 1
      do --早上课室
         local bg = display.newSprite("back_class_normal.png")
-        -- bg:setVisible(false)
+        bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
         self:addChild(bg)
-        _bgSpriteVec[1] = bg
+        _bgSpriteVec[index] = bg
+        index = index + 1
     end
 
     do --下午课室
@@ -34,7 +37,8 @@ function Background:initBackground()
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
         self:addChild(bg)
-        _bgSpriteVec[2] = bg
+        _bgSpriteVec[index] = bg
+        index = index + 1
     end
 
     do --晚上房间
@@ -42,7 +46,8 @@ function Background:initBackground()
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
         self:addChild(bg)
-        _bgSpriteVec[3] = bg
+        _bgSpriteVec[index] = bg
+        index = index + 1
     end
 
     do --早上房间
@@ -50,7 +55,8 @@ function Background:initBackground()
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
         self:addChild(bg)
-        _bgSpriteVec[4] = bg
+        _bgSpriteVec[index] = bg
+        index = index + 1
     end
 
     do --下午房间
@@ -58,25 +64,27 @@ function Background:initBackground()
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
         self:addChild(bg)
-        _bgSpriteVec[5] = bg
+        _bgSpriteVec[index] = bg
+        index = index + 1
     end
    
 end
 
 function Background:initBtn()
-
+        
         local index = 1
         local bgVec = _bgSpriteVec
         local size = table.getn(bgVec)
-
+        index = math.random(1, size)
+        bgVec[index]:setVisible(true)
+        
         local sprite = display.newSprite("refresh.png")
         self:addChild(sprite)
-        -- sprite:setPosition(ccp(display.cx, display.cy))
+
         sprite:setPosition(ccp(display.right - 100, display.top - 100))
         sprite:setTouchEnabled(true) -- enable sprite touch
         sprite:addTouchEventListener(function(event, x, y)
-            -- event: began, moved, ended
-            -- x, y: world coordinate
+
             if event == "began" then
                 sprite:setScale(0.9)
                 return true -- catch touch event, stop event dispatching
