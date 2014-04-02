@@ -76,12 +76,59 @@ function Background:initBackground()
         _bgSpriteVec[index] = bg
         index = index + 1
 
+
+
         do --window
+            local openVisible = true
+            local closeVisible = false
+
+            local curtainOpen = display.newSprite("curtain_open.png")
+            bg:addChild(curtainOpen, 2)
+            curtainOpen:setPosition(ccp(display.cx - 225, display.cy - 150)) 
+            curtainOpen:setScale(0.8)
+            curtainOpen:setVisible(openVisible)
+
+            local curtainClose = display.newSprite("curtain_close.png")
+            bg:addChild(curtainClose, 2)
+            curtainClose:setPosition(ccp(display.cx - 225, display.cy - 250)) 
+            curtainClose:setScale(0.8)
+            curtainClose:setVisible(closeVisible)
+
             local sprite = display.newSprite("window.png")
             bg:addChild(sprite)
             sprite:setPosition(ccp(display.cx - 200, display.cy - 250)) 
             sprite:setScale(0.8)
+
+            sprite:setTouchEnabled(true) -- enable sprite touch
+            sprite:addTouchEventListener(function(event, x, y)
+ 
+            if event == "began" then
+
+                return true -- catch touch event, stop event dispatching
+            end
+
+            local touchInSprite = sprite:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
+            if event == "moved" then
+
+            elseif event == "ended" then
+
+            openVisible, closeVisible = not openVisible, openVisible
+
+            curtainOpen:setVisible(openVisible)
+            curtainClose:setVisible(closeVisible)
+            else
+
+            end
+        end)   
         end
+
+        do --curtain open
+
+        end
+
+        do --curtain close
+
+        end        
     end
    
 end
