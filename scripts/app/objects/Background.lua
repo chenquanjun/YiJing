@@ -1,4 +1,5 @@
 require "app/objects/extern"
+require "app/objects/Player"
 
 --此处继承CCNode,因为需要维持这个表，但是用object的话需要retian/release
 Background = class("Background", function()
@@ -143,14 +144,76 @@ function Background:initBackground()
      
     end
 
-        do --desk
-            local desk = display.newSprite("desk.png")    
-            self:addChild(desk)
-            desk:setScale(0.5)
-            local rect = desk:getBoundingBox()
-            desk:setPosition(ccp(display.cx, display.bottom + rect.size.height * 0.5)) 
+    local player = Player:create()
+
+    self:addChild(player)
+
+
+    do --desk
+        local desk = display.newSprite("desk.png")    
+        self:addChild(desk)
+        desk:setScale(0.5)
+        local rect = desk:getBoundingBox()
+        desk:setPosition(ccp(display.cx, display.bottom + rect.size.height * 0.5)) 
             
+    end
+
+    do --plate
+
+
+        local plate = display.newSprite("plate.png")    
+        self:addChild(plate)
+        plate:setScale(0.5)
+        local rect = plate:getBoundingBox()
+        plate:setPosition(ccp(display.cx + 40, display.bottom + rect.size.height * 0.5 + 15)) 
+
+        local totalNum = 0
+
+        local function createFood()
+
+            totalNum = totalNum + 1
+            print(totalNum)
+            if totalNum >= 50 then
+                return
+            end
+            local num = math.random(1, 3)
+            local fileName = string.format("xiang_%i.png", num)
+            local food = display.newSprite(fileName)
+            plate:addChild(food) 
+
+            food:setScale(0.5)
+            local widthOffset = math.random(50, 150)
+            local heightOffset = math.random(100, 180)
+            food:setPosition(rect.size.width * widthOffset * 0.01, rect.size.height * heightOffset * 0.01)
         end
+
+        do --food
+            local sprite = display.newSprite("refresh.png")
+            plate:addChild(sprite)
+
+            sprite:setPosition(rect.size.width * 2.2, rect.size.height * 1.5)
+            sprite:setTouchEnabled(true) -- enable sprite touch
+            sprite:addTouchEventListener(function(event, x, y)
+     
+                if event == "began" then
+                    sprite:setScale(0.9)
+                    return true -- catch touch event, stop event dispatching
+                end
+
+                local touchInSprite = sprite:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
+                if event == "moved" then
+
+                elseif event == "ended" then
+                    createFood()
+
+                    sprite:setScale(1.0)
+                else
+                    sprite:setScale(1.0) 
+                end
+            end)   
+        end
+
+    end
    
 end
 
