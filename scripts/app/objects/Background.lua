@@ -10,6 +10,8 @@ Background.__index = Background
 
 local _bgSpriteVec = {}
 
+local _msgLabel = nil
+
 function Background:create()
 	local ret = Background.new()
 		ret:init()
@@ -21,7 +23,32 @@ function Background:init()
     self:initBtn()
 end
 
+function Background:showMsg(string)
+    local label = _msgLabel
+        local sequence = transition.sequence({
+                CCEaseBackOut:create(CCMoveBy:create(0.3, ccp(0, 100))),
+                CCDelayTime:create(1.0),
+                CCFadeOut:create(0.5),
+                CCHide:create(),
+            })
+
+        sequence:setTag(88)
+        label:stopActionByTag(88)
+        label:setVisible(true)
+        label:setPosition(display.left + 200, display.bottom)
+        label:setString(string)
+        label:setOpacity(255)
+        label:runAction(sequence)
+end
+
 function Background:initBackground()
+
+    local label = ui.newTTFLabel({text = "hmmmmm", size = 20, align = ui.TEXT_ALIGN_CENTER})
+    :addTo(self, 100)
+    label:setColor(ccc3(68, 206, 246))
+
+    _msgLabel = label
+    label:setVisible(false)
 
     local index = 1
      do --早上课室
@@ -46,17 +73,6 @@ function Background:initBackground()
         index = index + 1
     end
 
-    do --晚上房间
-        local bg = display.newSprite("back_room_night.png")
-        bg:setVisible(false)
-        bg:setPosition(ccp(display.cx, display.cy))
-        bg:setScaleX(640/512)
-        bg:setScaleY(640/512)
-        self:addChild(bg)
-        _bgSpriteVec[index] = bg
-        index = index + 1
-    end
-
     do --早上房间
         local bg = display.newSprite("back_room_normal.png")
         bg:setVisible(false)
@@ -70,6 +86,17 @@ function Background:initBackground()
 
     do --下午房间
         local bg = display.newSprite("back_room_sunset.png")
+        bg:setVisible(false)
+        bg:setPosition(ccp(display.cx, display.cy))
+        bg:setScaleX(640/512)
+        bg:setScaleY(640/512)
+        self:addChild(bg)
+        _bgSpriteVec[index] = bg
+        index = index + 1
+    end
+
+    do --晚上房间
+        local bg = display.newSprite("back_room_night.png")
         bg:setVisible(false)
         bg:setPosition(ccp(display.cx, display.cy))
         bg:setScaleX(640/512)
@@ -159,7 +186,16 @@ function Background:initBackground()
     end
 
     do --plate
-
+        local foodStrTable = {}
+        foodStrTable[1] = "好好吃哦"
+        foodStrTable[2] = "要两颗一起吃"
+        foodStrTable[3] = "老板加鸡腿"
+        foodStrTable[4] = "根本停不下来"
+        foodStrTable[5] = "白天吃热翔，晚上学蓝翔！"
+        foodStrTable[6] = "热翔，我的最爱"
+        foodStrTable[7] = "好饱喔"
+        foodStrTable[8] = "都是我的！"
+        foodStrTable[9] = "O(∩_∩)O哈哈~"
 
         local plate = display.newSprite("plate.png")    
         self:addChild(plate)
@@ -171,11 +207,11 @@ function Background:initBackground()
 
         local function createFood()
 
-            totalNum = totalNum + 1
-            print(totalNum)
-            if totalNum >= 50 then
+            if totalNum >= 20 then
                 return
             end
+            totalNum = totalNum + 1
+
             local num = math.random(1, 3)
             local fileName = string.format("xiang_%i.png", num)
             local food = display.newSprite(fileName)
@@ -185,6 +221,31 @@ function Background:initBackground()
             local widthOffset = math.random(50, 150)
             local heightOffset = math.random(100, 180)
             food:setPosition(rect.size.width * widthOffset * 0.01, rect.size.height * heightOffset * 0.01)
+
+            food:setTouchEnabled(true) -- enable sprite touch
+            food:addTouchEventListener(function(event, x, y)
+     
+                if event == "began" then
+                    food:setScale(0.45)
+                    return true -- catch touch event, stop event dispatching
+                end
+
+                local touchInSprite = food:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
+                if event == "moved" then
+
+                elseif event == "ended" then
+                    local strNum = math.random(1, table.getn(foodStrTable))
+                    local str = foodStrTable[strNum]
+                    self:showMsg(str)
+                    food:setVisible(false)
+                    food:removeSelf(true)
+                    totalNum = totalNum - 1
+                end
+            end)  
+        end
+
+        for i = 1,3 do
+            createFood()
         end
 
         do --food
@@ -214,10 +275,22 @@ function Background:initBackground()
         end
 
     end
+
+
    
 end
 
+
+
 function Background:initBtn()
+        local bgTable = {}
+        bgTable[1] = "早上课室"
+        bgTable[2] = "下午课室"  
+        bgTable[3] = "早上房间"
+        bgTable[4] = "下午房间"
+        bgTable[5] = "晚上房间"
+        bgTable[6] = "迷の房间^_^"
+
         
         local index = 1
         local bgVec = _bgSpriteVec
@@ -249,6 +322,11 @@ function Background:initBtn()
                     index = 1
                 end
                 local bgNow = bgVec[index]
+                local str = bgTable[index]
+
+                if str then
+                    self:showMsg(str)
+                end
                 bgNow:setVisible(true) 
 
                 sprite:setScale(1.0)
