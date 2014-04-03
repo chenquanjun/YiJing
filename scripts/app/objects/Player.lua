@@ -16,40 +16,74 @@ function Player:create()
 end
 
 function Player:init()
-    local sprite = display.newSprite("player.png")
-    sprite:setTouchEnabled(true) -- enable sprite touch
-    sprite:addTouchEventListener(function(event, x, y)
+    local spriteNor = display.newSprite("player.png")
+    local spriteSur = display.newSprite("player_surprise.png")
+
+    spriteNor:setTouchEnabled(true) -- enable sprite touch
+    spriteSur:setTouchEnabled(true)
+
+    spriteNor:addTouchEventListener(function(event, x, y)
         -- event: began, moved, ended
         -- x, y: world coordinate
         if event == "began" then
-            sprite:setOpacity(128)
             return true -- catch touch event, stop event dispatching
         end
 
-        local touchInSprite = sprite:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
+        local touchInSprite = spriteNor:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
         if event == "moved" then
             if touchInSprite then
-                sprite:setOpacity(128)
+
             else
-                sprite:setOpacity(255)
+
             end
         elseif event == "ended" then
             if touchInSprite then 
-            	print("touch me")
-
+            	-- print("touch me")
+                spriteNor:setVisible(false)
+                spriteSur:setVisible(true)
             end
-            sprite:setOpacity(255)
+
         else
-            sprite:setOpacity(255)
+
         end
     end)
 
-    sprite:setPosition(ccp(display.cx - 50, display.cy)) 
-    sprite:setScale(0.8)
+    spriteSur:addTouchEventListener(function(event, x, y)
+        -- event: began, moved, ended
+        -- x, y: world coordinate
+        if event == "began" then
+            return true -- catch touch event, stop event dispatching
+        end
 
-    self:addChild(sprite)
+        local touchInSprite = spriteNor:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
+        if event == "moved" then
+            if touchInSprite then
 
-    _sprite = sprite
+            else
+
+            end
+        elseif event == "ended" then
+            if touchInSprite then 
+                -- print("touch me")
+                spriteSur:setVisible(false)
+                spriteNor:setVisible(true)
+            end
+
+        else
+
+        end
+    end)
+
+    spriteNor:setPosition(ccp(display.cx - 50, display.cy - 50)) 
+    spriteSur:setPosition(ccp(display.cx - 50, display.cy - 50)) 
+    spriteNor:setScale(0.65)
+    spriteSur:setScale(0.65)
+
+    self:addChild(spriteNor)
+    self:addChild(spriteSur)
+
+    spriteSur:setVisible(false)
+    _sprite = spriteNor
 end
 
 

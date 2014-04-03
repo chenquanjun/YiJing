@@ -81,7 +81,7 @@ function Background:initBackground()
     do --自定义房间
         local bg =display.newLayer()
         bg:setVisible(false)
-        bg:setPosition(ccp(display.cx, display.cy))
+        -- bg:setPosition(ccp(display.cx, display.cy))
         self:addChild(bg)
         _bgSpriteVec[index] = bg
         index = index + 1
@@ -94,19 +94,19 @@ function Background:initBackground()
 
             local curtainOpen = display.newSprite("curtain_open.png")
             bg:addChild(curtainOpen, 2)
-            curtainOpen:setPosition(ccp(display.cx - 225, display.cy - 150)) 
+            curtainOpen:setPosition(ccp(display.right - 225, display.top - 150)) 
             curtainOpen:setScale(0.8)
             curtainOpen:setVisible(openVisible)
 
             local curtainClose = display.newSprite("curtain_close.png")
             bg:addChild(curtainClose, 2)
-            curtainClose:setPosition(ccp(display.cx - 225, display.cy - 250)) 
+            curtainClose:setPosition(ccp(display.right - 225, display.top - 250)) 
             curtainClose:setScale(0.8)
             curtainClose:setVisible(closeVisible)
 
             local sprite = display.newSprite("window.png")
             bg:addChild(sprite)
-            sprite:setPosition(ccp(display.cx - 200, display.cy - 250)) 
+            sprite:setPosition(ccp(display.right - 200, display.top - 250)) 
             sprite:setScale(0.8)
 
             sprite:setTouchEnabled(true) -- enable sprite touch
@@ -132,14 +132,25 @@ function Background:initBackground()
         end)   
         end
 
-        do --curtain open
-
+        do --bookshelf
+            local bookshelf = display.newSprite("bookshelf.png")
+            bg:addChild(bookshelf)
+            bookshelf:setPosition(ccp(display.left + 60, display.cy)) 
+            bookshelf:setScale(0.5)
         end
 
-        do --curtain close
 
-        end        
+     
     end
+
+        do --desk
+            local desk = display.newSprite("desk.png")    
+            self:addChild(desk)
+            desk:setScale(0.5)
+            local rect = desk:getBoundingBox()
+            desk:setPosition(ccp(display.cx, display.bottom + rect.size.height * 0.5)) 
+            
+        end
    
 end
 
