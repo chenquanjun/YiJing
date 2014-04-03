@@ -23,6 +23,18 @@ function Background:init()
     self:initBtn()
 end
 
+function Background:showMsgInTable(strTable)
+    local size = table.getn(strTable)
+
+    local num = math.random(1, size)
+
+    local str = strTable[num]
+
+    if str then
+        self:showMsg(str)
+    end
+end
+
 function Background:showMsg(string)
     local label = _msgLabel
         local sequence = transition.sequence({
@@ -43,6 +55,11 @@ end
 
 function Background:initBackground()
 
+    local msgBox = display.newSprite("msgbox.png")
+    msgBox:setPosition(ccp(display.left + 200, display.bottom + 100))
+    msgBox:setScale(0.6)
+    self:addChild(msgBox, 99)
+
     local label = ui.newTTFLabel({text = "hmmmmm", size = 20, align = ui.TEXT_ALIGN_CENTER})
     :addTo(self, 100)
     label:setColor(ccc3(68, 206, 246))
@@ -50,7 +67,20 @@ function Background:initBackground()
     _msgLabel = label
     label:setVisible(false)
 
-    local index = 1
+
+
+    self:initBg()
+
+    self:initPlayer()
+
+    self:initDesk()
+
+    self:initFood()
+
+end
+
+function Background:initBg()
+        local index = 1
      do --早上课室
         local bg = display.newSprite("back_class_normal.png")
         bg:setVisible(false)
@@ -114,8 +144,6 @@ function Background:initBackground()
         _bgSpriteVec[index] = bg
         index = index + 1
 
-
-
         do --window
             local openVisible = true
             local closeVisible = false
@@ -170,12 +198,9 @@ function Background:initBackground()
 
      
     end
+end
 
-    local player = Player:create()
-
-    self:addChild(player)
-
-
+function Background:initDesk()
     do --desk
         local desk = display.newSprite("desk.png")    
         self:addChild(desk)
@@ -184,18 +209,124 @@ function Background:initBackground()
         desk:setPosition(ccp(display.cx, display.bottom + rect.size.height * 0.5)) 
             
     end
+end
 
-    do --plate
+function Background:initPlayer()
+
+    local playerStrTable = {}
+    playerStrTable[1] = "噢哈哟~"
+    playerStrTable[2] = "晚安"
+    playerStrTable[3] = "虫子快要被吃完了"
+    playerStrTable[4] = "热翔在哪里？"
+    playerStrTable[5] = "不要摸奇怪的地方啦"
+    playerStrTable[6] = "天呐"
+    playerStrTable[7] = "画(ce)册(zhi)没有了！"
+    playerStrTable[8] = "这个月的工资不发了！"
+    playerStrTable[9] = "不行！"
+    playerStrTable[10] = "真棒！"
+    playerStrTable[11] = "酷爱，把虫子捉住"
+    playerStrTable[12] = "诶，你是谁"
+    playerStrTable[13] = "这个星球不错，我要开动了"
+    playerStrTable[14] = "←_←"
+    playerStrTable[15] = "←_←"
+    playerStrTable[16] = "←_←"
+    playerStrTable[17] = "←_←"
+    playerStrTable[18] = "←_←"
+    playerStrTable[19] = "←_←"
+    playerStrTable[20] = "←_←"
+    playerStrTable[21] = "←_←"
+
+    local spriteNor = display.newSprite("player.png")
+    local spriteSur = display.newSprite("player_surprise.png")
+
+    spriteNor:setTouchEnabled(true) -- enable sprite touch
+    spriteSur:setTouchEnabled(true)
+
+    spriteNor:addTouchEventListener(function(event, x, y)
+        -- event: began, moved, ended
+        -- x, y: world coordinate
+        if event == "began" then
+            return true -- catch touch event, stop event dispatching
+        end
+
+        local touchInSprite = spriteNor:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
+        if event == "moved" then
+            if touchInSprite then
+
+            else
+
+            end
+        elseif event == "ended" then
+            if touchInSprite then 
+                -- print("touch me")
+                spriteNor:setVisible(false)
+                spriteSur:setVisible(true)
+                self:showMsgInTable(playerStrTable)
+            end
+
+        else
+
+        end
+    end)
+
+    spriteSur:addTouchEventListener(function(event, x, y)
+        -- event: began, moved, ended
+        -- x, y: world coordinate
+        if event == "began" then
+            return true -- catch touch event, stop event dispatching
+        end
+
+        local touchInSprite = spriteNor:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
+        if event == "moved" then
+            if touchInSprite then
+
+            else
+
+            end
+        elseif event == "ended" then
+            if touchInSprite then 
+                -- print("touch me")
+                spriteSur:setVisible(false)
+                spriteNor:setVisible(true)
+                self:showMsgInTable(playerStrTable)
+            end
+
+        else
+
+        end
+    end)
+
+    spriteNor:setPosition(ccp(display.cx - 50, display.cy - 50)) 
+    spriteSur:setPosition(ccp(display.cx - 50, display.cy - 50)) 
+    spriteNor:setScale(0.65)
+    spriteSur:setScale(0.65)
+
+    self:addChild(spriteNor)
+    self:addChild(spriteSur)
+
+    spriteSur:setVisible(false)
+end
+
+function Background:initFood()
+       do --plate
         local foodStrTable = {}
         foodStrTable[1] = "好好吃哦"
         foodStrTable[2] = "要两颗一起吃"
-        foodStrTable[3] = "老板加鸡腿"
+        foodStrTable[3] = "吃完一口气上五楼"
         foodStrTable[4] = "根本停不下来"
         foodStrTable[5] = "白天吃热翔，晚上学蓝翔！"
         foodStrTable[6] = "热翔，我的最爱"
         foodStrTable[7] = "好饱喔"
         foodStrTable[8] = "都是我的！"
         foodStrTable[9] = "O(∩_∩)O哈哈~"
+
+        local addFoodStrTable = {}
+        addFoodStrTable[1] = "再来一个"
+        addFoodStrTable[2] = "老板加鸡腿"
+        addFoodStrTable[3] = "多多都不够！"
+        addFoodStrTable[4] = "好吃你就多吃点"
+        addFoodStrTable[5] = "不要客气"
+        addFoodStrTable[6] = "大家也来尝尝啊( ⊙ o ⊙ )"
 
         local plate = display.newSprite("plate.png")    
         self:addChild(plate)
@@ -208,8 +339,11 @@ function Background:initBackground()
         local function createFood()
 
             if totalNum >= 20 then
+                self:showMsg("碟子装不下啦!")
                 return
             end
+            self:showMsgInTable(addFoodStrTable)
+
             totalNum = totalNum + 1
 
             local num = math.random(1, 3)
@@ -234,9 +368,8 @@ function Background:initBackground()
                 if event == "moved" then
 
                 elseif event == "ended" then
-                    local strNum = math.random(1, table.getn(foodStrTable))
-                    local str = foodStrTable[strNum]
-                    self:showMsg(str)
+
+                    self:showMsgInTable(foodStrTable)
                     food:setVisible(false)
                     food:removeSelf(true)
                     totalNum = totalNum - 1
@@ -252,12 +385,13 @@ function Background:initBackground()
             local sprite = display.newSprite("refresh.png")
             plate:addChild(sprite)
 
-            sprite:setPosition(rect.size.width * 2.2, rect.size.height * 1.5)
+            sprite:setPosition(rect.size.width * 2.4, rect.size.height * 1.1)
+            sprite:setScale(1.5)
             sprite:setTouchEnabled(true) -- enable sprite touch
             sprite:addTouchEventListener(function(event, x, y)
-     
+            
                 if event == "began" then
-                    sprite:setScale(0.9)
+                    sprite:setScale(1.2)
                     return true -- catch touch event, stop event dispatching
                 end
 
@@ -267,17 +401,14 @@ function Background:initBackground()
                 elseif event == "ended" then
                     createFood()
 
-                    sprite:setScale(1.0)
+                    sprite:setScale(1.5)
                 else
-                    sprite:setScale(1.0) 
+                    sprite:setScale(1.5) 
                 end
             end)   
         end
 
     end
-
-
-   
 end
 
 
