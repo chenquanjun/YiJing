@@ -19,40 +19,37 @@ lua_loadChunksFromZIP() - loaded chunks count: 54
 ------------------------------------------------
 LOAD LUA FILE: F:/develop/project/yijing/scripts/main.lua
 ------------------------------------------------
-[0.1903] [INFO] 
-[0.1907] [INFO] # DEBUG                        = 2
-[0.1913] [INFO] #
-[0.1919] [INFO] # device.platform              = windows
-[0.1923] [INFO] # device.model                 = unknown
-[0.1926] [INFO] # device.language              = cn
-[0.1929] [INFO] # device.writablePath          = F:\develop\project\yijing\
-[0.1932] [INFO] # device.cachePath             = F:\develop\project\yijing\
-[0.1935] [INFO] # device.directorySeparator    = \
-[0.1960] [INFO] # device.pathSeparator         = ;
-[0.1962] [INFO] #
-[0.1973] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_WIDTH
-[0.1975] [INFO] # CONFIG_SCREEN_WIDTH          = 1136.00
-[0.2015] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
-[0.2021] [INFO] # display.widthInPixels        = 1136.00
-[0.2023] [INFO] # display.heightInPixels       = 640.00
-[0.2032] [INFO] # display.contentScaleFactor   = 1.00
-[0.2035] [INFO] # display.width                = 1136.00
-[0.2037] [INFO] # display.height               = 640.00
-[0.2045] [INFO] # display.cx                   = 568.00
-[0.2047] [INFO] # display.cy                   = 320.00
-[0.2050] [INFO] # display.left                 = 0.00
-[0.2058] [INFO] # display.right                = 1136.00
-[0.2060] [INFO] # display.top                  = 640.00
-[0.2062] [INFO] # display.bottom               = 0.00
-[0.2071] [INFO] # display.c_left               = -568.00
-[0.2073] [INFO] # display.c_right              = 568.00
-[0.2076] [INFO] # display.c_top                = 320.00
-[0.2084] [INFO] # display.c_bottom             = -320.00
-[0.2086] [INFO] #
-[0.4234] [INFO] Scene "GameScene:onEnter()"
-[10.4300] [INFO] LUA VM MEMORY USED: 1237.16 KB
-[20.4301] [INFO] LUA VM MEMORY USED: 1245.07 KB
-[30.4303] [INFO] LUA VM MEMORY USED: 1254.67 KB
-[40.4305] [INFO] LUA VM MEMORY USED: 1262.86 KB
-[50.4316] [INFO] LUA VM MEMORY USED: 1273.10 KB
-[60.4444] [INFO] LUA VM MEMORY USED: 1273.20 KB
+[0.1908] [INFO] 
+[0.1912] [INFO] # DEBUG                        = 2
+[0.1917] [INFO] #
+[0.1922] [INFO] # device.platform              = windows
+[0.1925] [INFO] # device.model                 = unknown
+[0.1929] [INFO] # device.language              = cn
+[0.1931] [INFO] # device.writablePath          = F:\develop\project\yijing\
+[0.1940] [INFO] # device.cachePath             = F:\develop\project\yijing\
+[0.1943] [INFO] # device.directorySeparator    = \
+[0.1945] [INFO] # device.pathSeparator         = ;
+[0.1973] [INFO] #
+[0.1984] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_WIDTH
+[0.1986] [INFO] # CONFIG_SCREEN_WIDTH          = 1136.00
+[0.1989] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
+[0.1999] [INFO] # display.widthInPixels        = 1136.00
+[0.2002] [INFO] # display.heightInPixels       = 640.00
+[0.2004] [INFO] # display.contentScaleFactor   = 1.00
+[0.2036] [INFO] # display.width                = 1136.00
+[0.2039] [INFO] # display.height               = 640.00
+[0.2042] [INFO] # display.cx                   = 568.00
+[0.2050] [INFO] # display.cy                   = 320.00
+[0.2052] [INFO] # display.left                 = 0.00
+[0.2055] [INFO] # display.right                = 1136.00
+[0.2062] [INFO] # display.top                  = 640.00
+[0.2065] [INFO] # display.bottom               = 0.00
+[0.2068] [INFO] # display.c_left               = -568.00
+[0.2077] [INFO] # display.c_right              = 568.00
+[0.2080] [INFO] # display.c_top                = 320.00
+[0.2083] [INFO] # display.c_bottom             = -320.00
+[0.2090] [INFO] #
+[0.4499] [INFO] Scene "GameScene:onEnter()"
+[10.4516] [INFO] LUA VM MEMORY USED: 1246.99 KB
+[20.4535] [INFO] LUA VM MEMORY USED: 1252.48 KB
+[30.4586] [INFO] LUA VM MEMORY USED: 1267.22 KB
