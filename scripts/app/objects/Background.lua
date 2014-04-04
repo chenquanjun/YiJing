@@ -71,7 +71,8 @@ function Background:initBackground()
 
     self:initBg()
 
-    self:initPlayer()
+    -- self:initPlayer()
+    self:initAnim()
 
     self:initDesk()
 
@@ -209,6 +210,47 @@ function Background:initDesk()
         desk:setPosition(ccp(display.cx, display.bottom + rect.size.height * 0.5)) 
             
     end
+end
+
+function Background:initAnim()
+    local body = display.newSprite("playerAnim_player.png")
+    body:setTouchEnabled(true)
+    self:addChild(body)
+
+    local eyeSmile = display.newSprite("playerAnim_eye_smile.png")
+    local eyeNormal = display.newSprite("playerAnim_eye_normal.png")
+
+    eyeSmile:setPosition(ccp(251, 406))
+    eyeNormal:setPosition(ccp(251, 406))
+    body:addChild(eyeSmile)
+    body:addChild(eyeNormal)
+    body:setPosition(ccp(display.cx - 50, display.cy - 50)) 
+    body:setScale(0.65)
+
+    body:addTouchEventListener(function(event, x, y)
+        -- event: began, moved, ended
+        -- x, y: world coordinate
+        if event == "began" then
+            return true -- catch touch event, stop event dispatching
+        end
+
+        local touchInSprite = body:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
+        if event == "moved" then
+            if touchInSprite then
+
+            else
+
+            end
+        elseif event == "ended" then
+            if touchInSprite then 
+                -- print("touch me")
+            end
+
+        else
+
+        end
+    end)
+
 end
 
 function Background:initPlayer()
