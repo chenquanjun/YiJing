@@ -38,7 +38,7 @@ end
 function Background:showMsg(string)
     local label = _msgLabel
         local sequence = transition.sequence({
-                CCEaseBackOut:create(CCMoveBy:create(0.3, ccp(0, 100))),
+                CCSpawn:createWithTwoActions(CCEaseBackOut:create(CCMoveBy:create(0.3, ccp(0, 100))), CCFadeIn:create(0.3)),
                 CCDelayTime:create(1.0),
                 CCFadeOut:create(0.5),
                 CCHide:create(),
@@ -47,7 +47,7 @@ function Background:showMsg(string)
         sequence:setTag(88)
         label:stopActionByTag(88)
         label:setVisible(true)
-        label:setPosition(display.left + 200, display.bottom)
+        label:setPosition(display.left + 250, display.top - 200)
         label:setString(string)
         label:setOpacity(255)
         label:runAction(sequence)
@@ -56,7 +56,7 @@ end
 function Background:initBackground()
 
     local msgBox = display.newSprite("msgbox.png")
-    msgBox:setPosition(ccp(display.left + 200, display.bottom + 100))
+    msgBox:setPosition(ccp(display.left + 250, display.top - 100))
     msgBox:setScale(0.6)
     self:addChild(msgBox, 99)
 
@@ -336,13 +336,18 @@ function Background:initFood()
 
         local totalNum = 0
 
-        local function createFood()
+        local function createFood(bIsInit)
 
             if totalNum >= 20 then
                 self:showMsg("碟子装不下啦!")
                 return
             end
-            self:showMsgInTable(addFoodStrTable)
+
+            if not bIsInit then
+                self:showMsgInTable(addFoodStrTable)
+            end
+
+            
 
             totalNum = totalNum + 1
 
@@ -378,7 +383,7 @@ function Background:initFood()
         end
 
         for i = 1,3 do
-            createFood()
+            createFood(true)
         end
 
         do --food
