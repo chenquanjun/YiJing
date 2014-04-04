@@ -67,7 +67,10 @@ function Background:initBackground()
     _msgLabel = label
     label:setVisible(false)
 
-
+    -- local color = ccc4(171, 154, 136, 255)
+    local color = ccc4(201, 161, 197, 255)
+    local colorLayer = CCLayerColor:create(color)
+    self:addChild(colorLayer)
 
     self:initBg()
 
@@ -161,6 +164,20 @@ function Background:initBg()
             curtainClose:setScale(0.8)
             curtainClose:setVisible(closeVisible)
 
+            local colorTable = {
+                [1] = {color = ccc3(221, 247, 254), str = "噢哈哟，现在早上"},
+                [2] = {color = ccc3(255, 255, 255), str = "中午好，现在中午"},
+                [3] = {color = ccc3(255, 193, 141), str = "晚上好，现在晚上"},
+            }
+
+            local colorIndex = 1
+            local colorNum = table.getn(colorTable)
+
+            local color = ccc4(221, 247, 254, 255)
+            local layerColor = CCLayerColor:create(color, 400, 450)
+            layerColor:setPosition(ccp(display.right - 400, display.top - 450))
+            bg:addChild(layerColor, -1)
+
             local sprite = display.newSprite("window.png")
             bg:addChild(sprite)
             sprite:setPosition(ccp(display.right - 200, display.top - 250)) 
@@ -183,6 +200,18 @@ function Background:initBg()
 
             curtainOpen:setVisible(openVisible)
             curtainClose:setVisible(closeVisible)
+
+            if openVisible then
+                local colorInfo = colorTable[colorIndex]
+                layerColor:setColor(colorInfo.color)
+                self:showMsg(colorInfo.str)
+                    colorIndex = colorIndex + 1
+                if colorIndex > colorNum then
+                    colorIndex = 1
+                end
+            end
+
+
             else
 
             end
@@ -213,19 +242,117 @@ function Background:initDesk()
 end
 
 function Background:initAnim()
+
+    local playerStrTable = {}
+    playerStrTable[1] = "噢哈哟~"
+    playerStrTable[2] = "晚安"
+    playerStrTable[3] = "虫子快要被吃完了"
+    playerStrTable[4] = "热翔在哪里？"
+    playerStrTable[5] = "不要摸奇怪的地方啦"
+    playerStrTable[6] = "天呐"
+    playerStrTable[7] = "画(ce)册(zhi)没有了！"
+    playerStrTable[8] = "这个月的工资不发了！"
+    playerStrTable[9] = "不行！"
+    playerStrTable[10] = "真棒！"
+    playerStrTable[11] = "酷爱，把虫子捉住"
+    playerStrTable[12] = "诶，你是谁"
+    playerStrTable[13] = "这个星球不错，我要开动了"
+    playerStrTable[14] = "←_←"
+    playerStrTable[15] = "←_←"
+    playerStrTable[16] = "←_←"
+    playerStrTable[17] = "←_←"
+    playerStrTable[18] = "←_←"
+    playerStrTable[19] = "←_←"
+    playerStrTable[20] = "←_←"
+    playerStrTable[21] = "←_←"
+
     local body = display.newSprite("playerAnim_player.png")
     body:setTouchEnabled(true)
     self:addChild(body)
 
-    local eyeSmile = display.newSprite("playerAnim_eye_smile.png")
-    local eyeNormal = display.newSprite("playerAnim_eye_normal.png")
+    local eyeSmile = display.newSprite("playerAnim_eye_smile.png", 251, 406)
+    local eyeNormal = display.newSprite("playerAnim_eye_normal.png", 251, 406)
 
-    eyeSmile:setPosition(ccp(251, 406))
-    eyeNormal:setPosition(ccp(251, 406))
+    local mouth_close = display.newSprite("playerAnim_mouth_close.png", 251, 318)
+    local mouth_small = display.newSprite("playerAnim_mouth_small.png", 251, 318)
+    local mouth_large = display.newSprite("playerAnim_mouth_large.png", 251, 318)
+    local mouth_smile = display.newSprite("playerAnim_mouth_smile.png", 251, 318)
+
     body:addChild(eyeSmile)
     body:addChild(eyeNormal)
+
+    body:addChild(mouth_close)
+    body:addChild(mouth_small)
+    body:addChild(mouth_large)
+    body:addChild(mouth_smile)
+
+
+
     body:setPosition(ccp(display.cx - 50, display.cy - 50)) 
     body:setScale(0.65)
+
+
+    local switchType = {
+        --微笑
+        [1]  = function()
+            eyeSmile:setVisible(true)
+            eyeNormal:setVisible(false)
+            mouth_close:setVisible(false)
+            mouth_small:setVisible(false)
+            mouth_large:setVisible(false)
+            mouth_smile:setVisible(true)
+        end,
+        --嘟嘴
+        [2]  = function()
+            eyeSmile:setVisible(false)
+            eyeNormal:setVisible(true)
+            mouth_close:setVisible(true)
+            mouth_small:setVisible(false)
+            mouth_large:setVisible(false)
+            mouth_smile:setVisible(false)
+        end,
+        --小口
+        [3]  = function()
+            eyeSmile:setVisible(false)
+            eyeNormal:setVisible(true)
+            mouth_close:setVisible(false)
+            mouth_small:setVisible(true)
+            mouth_large:setVisible(false)
+            mouth_smile:setVisible(false)
+        end,
+        --大口
+        [4]  = function()
+            eyeSmile:setVisible(false)
+            eyeNormal:setVisible(true)
+            mouth_close:setVisible(false)
+            mouth_small:setVisible(false)
+            mouth_large:setVisible(true)
+            mouth_smile:setVisible(false)
+        end,
+        --普通笑
+        [5]  = function()
+            eyeSmile:setVisible(false)
+            eyeNormal:setVisible(true)
+            mouth_close:setVisible(false)
+            mouth_small:setVisible(false)
+            mouth_large:setVisible(false)
+            mouth_smile:setVisible(true)
+        end,
+    } --switch end+
+
+    local function switch(index)
+        local fSwitch = switchType[index] --switch 方法
+
+        --存在switch（必然存在）
+        if fSwitch then
+            local result = fSwitch() --执行function
+        else
+            error("error state") --没有枚举
+            return
+        end
+    end
+
+    switch(1)
 
     body:addTouchEventListener(function(event, x, y)
         -- event: began, moved, ended
@@ -243,7 +370,8 @@ function Background:initAnim()
             end
         elseif event == "ended" then
             if touchInSprite then 
-                -- print("touch me")
+                self:showMsgInTable(playerStrTable)
+                switch(math.random(1, table.getn(switchType)))
             end
 
         else
